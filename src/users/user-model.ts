@@ -1,4 +1,4 @@
-import { BaseSchema, model, ObjectId } from "../db";
+import { BaseSchema, model } from "../db";
 import { IUser } from "../types";
 
 // name
@@ -6,34 +6,36 @@ const modelName = "User";
 
 // project schema
 const userSchema = BaseSchema<IUser>({
-  id: {
-    type: ObjectId,
-    required: true,
-  },
-
+  id: String,
   name: {
-    type: String,
-    required: true,
+    title: String,
+    first: String,
+    last: String,
   },
-  email: {
-    type: String,
-    required: true,
-  },
-  phone: {
-    type: String,
-  },
-  gender: {
-    type: String,
-  },
-  dateOfBirth: {
-    type: String,
-  },
-  avatar: {
-    type: String,
+  email: String,
+  phone: String,
+  cell: String,
+    dob: {
+        date: String,
+        age: Number,
   },
   location: {
-    type: Object,
+    street: {
+      number: Number,
+      name: String,
+    },
+    city: String,
+    state: String,
+    postcode: Number,
+    country: String,
   },
+  picture: {
+    large: String,
+    medium: String,
+    thumbnail: String,
+  },
+  gender: String,
+  nat: String,
 });
 
 // model
